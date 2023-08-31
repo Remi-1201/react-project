@@ -1,30 +1,26 @@
 import React from 'react';
 
-const ItemList = () => {
+const ListItem = (props) => {
   return (
-    <ul className="item-list">
-      <li>
-        <h2>Title 01</h2>
-        <div>
-          Proin ex nunc, bibendum ut magna quis.
-        </div>
-      </li>
+    <li>
+      <h2>{props.propsItem.title}</h2>
+      <div>
+        {props.propsItem.info}
+      </div>
+    </li>
+  )
+};
 
-      <li>
-        <h2>Title 02</h2>
-        <div>
-          Blandit mollis orci. Ut pretium diam ut tristique interdum amet condimentum.
-        </div>
-      </li>
+const ItemList = (props) => {
+  const propsList = props.itemList;
 
-      <li>
-        <h2>Title 03</h2>
-        <div>
-          Donec ut libero pretium, efficitur nisl vel, sagittis elit.
-        </div>
-      </li>
+  return (
+    <ul className='item-list'>
+      {propsList.map((item) => 
+        <ListItem propsItem={item}/>
+      )}
     </ul>
   )
-}
+};
 
 export default ItemList;

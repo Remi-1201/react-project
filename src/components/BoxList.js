@@ -1,14 +1,23 @@
 import React from 'react';
 
-const BoxList = () => {
+const BoxItem = (props) => {
+  return (
+    <li>
+      {props.propsBox}
+    </li>
+  )
+};
+
+const BoxList = (props) => {
+  const boxList = props.boxList;
+
   return (
     <ul className="box-list">
-      <li>Box 1</li>
-      <li>Box 2</li>
-      <li>Box 3</li>
-      <li>Box 4</li>
+      {boxList.map((itemBox) => 
+        <BoxItem propsBox={itemBox}/>
+      )}
     </ul>
   )
-}
+};
 
 export default BoxList;

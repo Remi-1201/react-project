@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Headline = () => {
+const Headline = (props) => {
   return (
-    <h1>Big Title</h1>
+    <h1>{props.bigTitle}</h1>
   )
 }
 
