@@ -1,53 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
+import Header from './components/Header';
+import Headline from './components/Headline';
+import ItemList from './components/ItemList';
+import Aside from './components/Aside';
+import BoxList from './components/BoxList';
+import Footer from './components/Footer';
 
-function App() {
-  return (
-    <div id="layout">
-      <header>HEADER</header>
+class App extends Component {
+  render() {
+    return (
+      <div id="layout">
+        <Header />
 
-      <main>
-        <section id="content">
-          <h1>Big Title</h1>
-          <ul className="item-list">
-            <li>
-              <h2>Title 01</h2>
-              <div>
-                Proin ex nunc, bibendum ut magna quis.
-              </div>
-            </li>
+        <main>
+          <section id="content">
+            <Headline />
+            <ItemList />
+          </section>
 
-            <li>
-              <h2>Title 02</h2>
-              <div>
-                Blandit mollis orci. Ut pretium diam ut tristique interdum amet condimentum.
-              </div>
-            </li>
+          <Aside />
 
-            <li>
-              <h2>Title 03</h2>
-              <div>
-                Donec ut libero pretium, efficitur nisl vel, sagittis elit.
-              </div>
-            </li>
-          </ul>
-        </section>
+          <BoxList />
+        </main>
 
-        <aside>
-          ASIDE
-        </aside>
-
-        <ul className="box-list">
-          <li>Box 1</li>
-          <li>Box 2</li>
-          <li>Box 3</li>
-          <li>Box 4</li>
-        </ul>
-      </main>
-
-      <footer>FOOTER</footer>
-    </div>
-  );
-};
+        <Footer />
+      </div>
+    );
+  }
+}
 
 export default App;
