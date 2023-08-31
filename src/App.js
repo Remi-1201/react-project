@@ -8,6 +8,11 @@ import BoxList from './components/BoxList';
 import Footer from './components/Footer';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = blog;
+  };
+
   render() {
     return (
       <div id="layout">
@@ -15,18 +20,39 @@ class App extends Component {
 
         <main>
           <section id="content">
-            <Headline bigTitle={blog.bigTitle} />
-            <ItemList itemList={blog.itemList} />
+            <Headline bigTitle={this.state.bigTitle} />
+            <ItemList itemList={this.state.itemList} />
+            <button type="button" onClick={this.changeItem}>Change Data</button>
           </section>
 
           <Aside />
 
-          <BoxList boxList={blog.boxList}/>
+          <BoxList boxList={this.state.boxList}/>
         </main>
 
         <Footer />
       </div>
     )
+  };
+
+// eslint-disable-next-line no-undef
+  changeItem = () => {
+    this.setState({
+      itemList: [
+        {
+          title: 'Title changed',
+          info: 'Proin ex nunc, bibendum ut magna quis.'
+        },
+        {
+          title: 'Blandit mollis',
+          info: 'New information changed.'
+        },
+        {
+          title: 'Donec ut libero',
+          info: 'Donec ut libero pretium, efficitur nisl vel, sagittis elit.'
+        }
+      ]
+    });
   };
 };
 
